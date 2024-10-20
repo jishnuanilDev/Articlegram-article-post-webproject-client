@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { userNewArticle } from '../../../services/userServices'
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css'; // Import the CSS for Quill
 import {
   ModalContent,
   ModalHeader,
@@ -92,7 +94,7 @@ export default function AddArticle () {
         {onClose => (
           <>
             <ModalHeader className='flex flex-col gap-1 text-black'>
-              Log in
+              Add new article
             </ModalHeader>
             <ModalBody>
               <form>
@@ -168,17 +170,15 @@ export default function AddArticle () {
                     htmlFor='description'
                     className='block mb-2 text-sm font-medium text-gray-900 dark:text-white'
                   >
-                    Description
+                    Content
                   </label>
-                  <textarea
-                    value={description}
-                    onChange={e => setDescription(e.target.value)}
-                    id='description'
-                    rows='4'
-                    className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
-                    placeholder='Enter a brief description of the article'
-                    required
-                  ></textarea>
+                  <ReactQuill
+        value={description}
+        onChange={setDescription}
+        theme="snow"
+        placeholder="Write your article here..."
+      />
+            
                 </div>
   
                 {/* Image Upload */}

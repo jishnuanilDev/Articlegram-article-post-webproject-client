@@ -67,7 +67,8 @@ export default function UserAvatar ({user,setUpdate}) {
       </div>
 
       <Modal
-        size='5xl'
+        size='full'
+        className='overflow-y-auto'
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         placement='top-center'

@@ -38,6 +38,7 @@ function ArticleCard ({article}) {
                    {article.name}
                   </h5>
                 </Link>
+    
                 <p className='mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2'>
                  {article.description}
                 </p>
@@ -83,9 +84,9 @@ function ArticleCard ({article}) {
                     alt=''
                   />
                 </div>
-                    <p>
-               {article.description}
-                    </p>
+                <div
+        dangerouslySetInnerHTML={{ __html: article.description }}
+      />
                
                   </ModalBody>
                   {/* <ModalFooter>
